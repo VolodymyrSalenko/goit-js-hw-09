@@ -11,6 +11,7 @@ stopBtnEl.addEventListener('click', onStopChangeColorClick);
 
 function onChangeColorClick() {
     startBtnEl.setAttribute('disabled', 'true');
+    stopBtnEl.removeAttribute('disabled');
     
     timerId = setInterval(
         () => {bodyEl.style.backgroundColor = getRandomHexColor()},
@@ -19,8 +20,10 @@ function onChangeColorClick() {
 };
 
 function onStopChangeColorClick() {
-    clearInterval(timerId);
+    stopBtnEl.setAttribute('disabled', 'true');
     startBtnEl.removeAttribute('disabled');
+
+    clearInterval(timerId);
 };
 
 function getRandomHexColor() {
